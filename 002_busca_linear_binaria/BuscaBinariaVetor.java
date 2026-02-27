@@ -1,7 +1,7 @@
 import java.util.Arrays;
 public class BuscaBinariaVetor{
   public static int buscaBinaria(int [] vetor, int valor){
-    int inicio, fim;
+    int inicio = 0, fim = vetor.length - 1;
     while(inicio <= fim){
       
     }
