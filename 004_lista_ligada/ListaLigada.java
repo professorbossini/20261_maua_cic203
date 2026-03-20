@@ -1,5 +1,5 @@
 public class ListaLigada {
-  No primeiro = null;
+  No primeiro = null, ultimo = null;
   int quantidade = 0;
 
   public void adicionarNoComeco(String musica){
@@ -8,7 +8,8 @@ public class ListaLigada {
     quantidade++;
     if(estaVazia()){
       primeiro = novo;
-      primeiro.prox = null;
+      ultimo = novo;
+      novo.prox = null;
     }
     else{
       novo.prox = primeiro;
@@ -39,18 +40,22 @@ public class ListaLigada {
     if(estaVazia())
       adicionarNoComeco(musica);
     else{
-      No aux = primeiro;
-      while(aux.prox != null)
-        aux = aux.prox;
-      var novo = new No(musica, null);
-      aux.prox = novo;
+      No novo = new No(musica, null);
+      ultimo.prox = novo;
+      ultimo = novo;
       quantidade++;
     }
   }
  
   public void removerDoComeco(){
     if(!estaVazia()){
-      primeiro = primeiro.prox;
+      if(quantidade == 1){
+        primeiro = null;
+        ultimo = null;
+      }
+      else{
+        primeiro = primeiro.prox;
+      }
       quantidade--;
     }
   }
@@ -65,6 +70,7 @@ public class ListaLigada {
         while(aux.prox.prox != null)
           aux = aux.prox;
         aux.prox = null;
+        ultimo = aux;
         quantidade--;
       }
     }
