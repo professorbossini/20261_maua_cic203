@@ -87,4 +87,14 @@ public class ListaDuplamenteLigada {
     }
     System.out.println("null");
   }
+
+  void iterarRecursivamente(No no){
+    if(no != null){
+      System.out.print(no.musica + "->");
+      iterarRecursivamente(no.proximo);
+    }
+    else{
+      System.out.println("null");
+    }
+  }
 }
